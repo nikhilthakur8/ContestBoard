@@ -23,7 +23,7 @@ const updateLastUpdated = async () => {
         await databases.updateDocument(
             process.env.APPWRITE_DATABASE_ID,
             process.env.APPWRITE_MISCELLANEOUS_COLLECTION_ID,
-            "68352c370034be4deb90",
+            process.env.APPWRITE_MISCELLANEOUS_DOCUMENT_ID,
             { lastUpdated }
         );
         return lastUpdated;
