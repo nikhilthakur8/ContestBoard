@@ -11,8 +11,8 @@ async function getLatestGeeksforGeeksQuestions() {
 			const type = contest.name.includes("Hiring") ? "Hiring" : "Weekly";
 			return {
 				name: contest.name,
-				startTime: new Date(contest.start_time).toISOString(),
-				endTime: new Date(contest.end_time).toISOString(),
+				startTime: new Date(contest.start_time+".000+05:30").toISOString(),
+				endTime: new Date(contest.end_time+".000+05:30").toISOString(),
 				duration:
 					(new Date(contest.end_time) -
 						new Date(contest.start_time)) /
