@@ -12,7 +12,7 @@ async function getLatestCodeChefQuestions() {
                 startTime: contest.contest_start_date_iso,
                 endTime: contest.contest_end_date_iso,
                 duration: contest.contest_duration * 60, // duration in seconds
-                link: `https://www.codechef.com/contests/${contest.contest_code}`,
+                link: `https://www.codechef.com/${contest.contest_code}`,
                 type: contest.contest_name.includes("Starters")
                     ? "Starters"
                     : "Others",
