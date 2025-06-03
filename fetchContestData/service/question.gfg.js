@@ -20,7 +20,7 @@ async function getLatestGeeksforGeeksQuestions() {
                 link: `https://practice.geeksforgeeks.org/contest/${contest.slug}`,
                 type: type,
                 contestId: `geeksforGeeks_${contest.slug}`,
-                platform: "GeeksforGeeks",
+                platform: "geeksforgeeks",
             };
         });
         const promise = data.map(createContestDocument);

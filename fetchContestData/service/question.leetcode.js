@@ -34,7 +34,7 @@ async function getLatestLeetCodeQuestions() {
                 link: `https://leetcode.com/contest/${contest.titleSlug}`,
                 type: type,
                 contestId: `leetcode_${contest.titleSlug}`,
-                platform: "LeetCode",
+                platform: "leetcode",
             };
         });
         const promises = data.map(createContestDocument);

@@ -17,7 +17,7 @@ async function getLatestCodeChefQuestions() {
                     ? "Starters"
                     : "Others",
                 contestId: `codechef-${contest.contest_code}`,
-                platform: "CodeChef",
+                platform: "codechef",
             };
         });
         const promise = data.map(createContestDocument);

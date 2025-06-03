@@ -22,7 +22,7 @@ async function getLatestCodeforcesQuestions() {
                 link: `https://codeforces.com/contests/${contest.id}`,
                 type: contest.type,
                 contestId: `codeforces_${contest.id}`,
-                platform: "Codeforces",
+                platform: "codeforces",
             };
         });
         const promise = data.map(createContestDocument);
