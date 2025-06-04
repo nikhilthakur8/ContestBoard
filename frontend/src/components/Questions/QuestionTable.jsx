@@ -205,7 +205,7 @@ const PlatformSelection = ({ selected, setSelected }) => {
 								className="w-5 h-5 object-contain"
 							/>
 						)}
-						<span className="text-sm md:text-base">{img.alt}</span>
+						<span className="text-xs md:text-base">{img.alt}</span>
 						{isSelected(idx) && <X size={16} />}
 					</button>
 				);

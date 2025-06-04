@@ -24,24 +24,20 @@ export function NavbarDemo() {
 				<NavBody>
 					<NavbarLogo />
 					<NavItems items={navItems} />
-					{/* <div className="flex items-center gap-4">
-						<NavbarButton variant="secondary">Login</NavbarButton>
-						<NavbarButton variant="primary">
-							Book a call
-						</NavbarButton>
-					</div> */}
 				</NavBody>
 
 				{/* Mobile Navigation */}
 				<MobileNav>
 					<MobileNavHeader>
 						<NavbarLogo />
-						<MobileNavToggle
-							isOpen={isMobileMenuOpen}
-							onClick={() =>
-								setIsMobileMenuOpen(!isMobileMenuOpen)
-							}
-						/>
+						{navItems?.length > 0 && (
+							<MobileNavToggle
+								isOpen={isMobileMenuOpen}
+								onClick={() =>
+									setIsMobileMenuOpen(!isMobileMenuOpen)
+								}
+							/>
+						)}
 					</MobileNavHeader>
 
 					<MobileNavMenu
