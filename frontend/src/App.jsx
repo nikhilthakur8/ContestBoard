@@ -3,7 +3,7 @@ import { NavbarDemo } from "./components/NavBar/NavBar";
 import { Analytics } from "@vercel/analytics/react";
 export const App = () => {
 	return (
-		<div className="min-h-screen bg-gray-950 lg:px-12 px-5 text-gray-200">
+		<div className="min-h-screen bg-gradient-to-l from-gray-950 via-gray-900 to-gray-950 lg:px-12 px-5 text-gray-200 relative">
 			<NavbarDemo />
 			<Home />
 			<Analytics />
