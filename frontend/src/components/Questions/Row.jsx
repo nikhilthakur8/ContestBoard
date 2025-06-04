@@ -61,7 +61,7 @@ export const Row = ({ question }) => {
 	return (
 		<>
 			<td>
-				<div className="px-6 py-3 flex items-center gap-2 ">
+				<div className="px-4 py-2 flex items-center gap-2 ">
 					<span className="w-8 h-8 rounded-full flex justify-center items-center bg-gray-700 border border-gray-600">
 						{image[question.platform.toLowerCase()]?.src && (
 							<img
@@ -82,16 +82,16 @@ export const Row = ({ question }) => {
 					<TooltipProvider delayDuration={100}>
 						<Tooltip>
 							<TooltipTrigger asChild>
-								<div className="cursor-pointer w-full px-6 py-3 text-left flex flex-row items-center space-x-2">
+								<div className="cursor-pointer w-full px-4 py-3 text-left flex flex-row items-center space-x-2">
 									<span>{question.name}</span>
-									<ExternalLink />
+									<ExternalLink className="size-5"/>
 								</div>
 							</TooltipTrigger>
 
 							<TooltipContent
 								side="top"
 								align="center"
-								className="bg-emerald-800 border-none text-sm sm:text-lg text-gray-300"
+								className="bg-emerald-800 border-none text-sm text-gray-300"
 							>
 								Visit Now
 							</TooltipContent>
@@ -99,19 +99,19 @@ export const Row = ({ question }) => {
 					</TooltipProvider>
 				</a>
 			</td>
-			<td className="px-6 py-3 whitespace-nowrap">
+			<td className="px-4 py-3 whitespace-nowrap">
 				{startingIn(question?.startTime, question?.endTime)}
 			</td>
-			<td className="px-6 py-3 whitespace-nowrap">
+			<td className="px-4 py-3 whitespace-nowrap">
 				{new Date(question.startTime).toLocaleString()}
 			</td>
-			<td className="px-6 py-3 whitespace-nowrap">
+			<td className="px-4 py-3 whitespace-nowrap">
 				<span className="bg-gray-700 border text-sm border-gray-600 rounded-md px-0.5 py-0.5 flex items-center justify-center">
 					{question.duration / 3600}{" "}
 					{question.duration === 1 ? "hour" : "hours"}
 				</span>
 			</td>
-			<td className="px-6 py-3 whitespace-nowrap">
+			<td className="px-4 py-3 whitespace-nowrap">
 				{new Date(question.endTime).toLocaleString()}
 			</td>
 		</>

@@ -63,32 +63,32 @@ export const Question = ({
 					<table className="w-full text-xs  md:text-[0.98rem]  text-left rtl:text-right text-gray-700 dark:text-gray-300">
 						<thead className="text-gray-700 uppercase bg-gray-50 dark:bg-gray-900 dark:text-gray-300">
 							<tr>
-								<th scope="col" className="px-6 py-2">
+								<th scope="col" className="px-4 py-2">
 									Platform
 								</th>
 								<th
 									scope="col"
-									className="px-6 py-2 whitespace-nowrap"
+									className="px-4 py-2 whitespace-nowrap"
 								>
 									Contest Title
 								</th>
 								<th
 									scope="col"
-									className="px-6 py-2 whitespace-nowrap"
+									className="px-4 py-2 whitespace-nowrap"
 								>
 									{title === "UPCOMING CONTESTS"
 										? "Starting In"
 										: "Status"}
 								</th>
-								<th scope="col" className="px-6 py-2">
+								<th scope="col" className="px-4 py-2">
 									Start Time
 								</th>
-								<th scope="col" className="px-6 py-2">
+								<th scope="col" className="px-4 py-2">
 									Duration
 								</th>
 								<th
 									scope="col"
-									className="px-6 py-2 whitespace-nowrap"
+									className="px-4 py-2 whitespace-nowrap"
 								>
 									End Time
 								</th>
@@ -205,7 +205,7 @@ const PlatformSelection = ({ selected, setSelected }) => {
 								className="w-5 h-5 object-contain"
 							/>
 						)}
-						<span>{img.alt}</span>
+						<span className="text-sm md:text-base">{img.alt}</span>
 						{isSelected(idx) && <X size={16} />}
 					</button>
 				);
