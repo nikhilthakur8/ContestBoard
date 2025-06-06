@@ -11,25 +11,36 @@ import {
 	MobileNavMenu,
 } from "../ui/resizable-navbar";
 import { useState } from "react";
-
+import { ColourfulText } from "../ui/colourful-text";
+import { Link } from "react-router-dom";
 export function NavbarDemo() {
-	const navItems = [];
+	const navItems = [
+		{
+			name: "Discussion Section",
+			link: "/discussion",
+		},
+	];
 
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 	return (
-		<div className=" w-full">
+		<div className="fixed z-50 w-full ">
 			<Navbar>
 				{/* Desktop Navigation */}
 				<NavBody>
-					<NavbarLogo />
-					<NavItems items={navItems} />
+					<div className="font-bold text-3xl">
+						Contest
+						<ColourfulText text="Board" />
+					</div>
+					<NavItems items={navItems} className={"text-base"} />
 				</NavBody>
 
 				{/* Mobile Navigation */}
 				<MobileNav>
 					<MobileNavHeader>
-						<NavbarLogo />
+						<div className="font-bold text-3xl">
+							<ColourfulText text="NextLeet" />
+						</div>
 						{navItems?.length > 0 && (
 							<MobileNavToggle
 								isOpen={isMobileMenuOpen}
@@ -45,31 +56,15 @@ export function NavbarDemo() {
 						onClose={() => setIsMobileMenuOpen(false)}
 					>
 						{navItems.map((item, idx) => (
-							<a
+							<Link
 								key={`mobile-link-${idx}`}
-								href={item.link}
+								to={item.link}
 								onClick={() => setIsMobileMenuOpen(false)}
 								className="relative text-neutral-600 dark:text-neutral-300"
 							>
 								<span className="block">{item.name}</span>
-							</a>
+							</Link>
 						))}
-						<div className="flex w-full flex-col gap-4">
-							<NavbarButton
-								onClick={() => setIsMobileMenuOpen(false)}
-								variant="primary"
-								className="w-full"
-							>
-								Login
-							</NavbarButton>
-							<NavbarButton
-								onClick={() => setIsMobileMenuOpen(false)}
-								variant="primary"
-								className="w-full"
-							>
-								Book a call
-							</NavbarButton>
-						</div>
 					</MobileNavMenu>
 				</MobileNav>
 			</Navbar>

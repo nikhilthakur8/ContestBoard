@@ -1,13 +1,11 @@
-import { Home } from "./components/Home/Home";
-import { NavbarDemo } from "./components/NavBar/NavBar";
 import { Analytics } from "@vercel/analytics/react";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { useEffect, useState } from "react";
 import { UserContextProvider } from "./context/ContextProvider";
-import { Outlet } from "react-router-dom";
+import { ChatPage } from "./components/Chats/ChatPage";
 const fpPromise = FingerprintJS.load();
 
-export const App = () => {
+export const ChatWrapper = () => {
 	const [fingerprint, setFingerprint] = useState("");
 	useEffect(() => {
 		const getFingerprint = async () => {
@@ -21,12 +19,9 @@ export const App = () => {
 		else getFingerprint();
 	}, []);
 	return (
-		<div className="min-h-screen bg-gradient-to-l from-gray-950 via-gray-900 to-gray-950 lg:px-12 px-5 text-gray-200">
-			<UserContextProvider fingerprint={fingerprint}>
-				<NavbarDemo />
-				<Outlet />
-				<Analytics />
-			</UserContextProvider>
-		</div>
+		<UserContextProvider fingerprint={fingerprint}>
+			<ChatPage />
+			<Analytics />
+		</UserContextProvider>
 	);
 };

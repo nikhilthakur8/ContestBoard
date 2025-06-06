@@ -2,33 +2,9 @@
 import React from "react";
 import { Row } from "./Row";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import codechef from "../../assets/codechef.png";
-import codeforces from "../../assets/codeforces.webp";
-import leetcode from "../../assets/leetcode.png";
-import gfg from "../../assets/gfg.png";
+import { images } from "./../../service/platformImg";
 import { X } from "lucide-react";
-const images = [
-	{
-		src: null,
-		alt: "All",
-	},
-	{
-		src: codechef,
-		alt: "CodeChef",
-	},
-	{
-		src: codeforces,
-		alt: "Codeforces",
-	},
-	{
-		src: leetcode,
-		alt: "LeetCode",
-	},
-	{
-		src: gfg,
-		alt: "GeeksforGeeks",
-	},
-];
+
 export const Question = ({
 	questions,
 	title,
@@ -189,23 +165,27 @@ const PlatformSelection = ({ selected, setSelected }) => {
 			isSelected(idx) ? "bg-gray-500/90" : "bg-gray-800"
 		}`;
 	};
+	const newImages = {
+		All: null,
+		...images,
+	};
 	return (
 		<div className="flex flex-wrap gap-2 transition-all duration-300 mb-5">
-			{images.map((img, idx) => {
+			{Object.entries(newImages).map(([key, value], idx) => {
 				return (
 					<button
 						key={idx}
 						className={getClassName(idx)}
 						onClick={() => handleClick(idx)}
 					>
-						{img.src && (
+						{value && (
 							<img
-								src={img.src}
-								alt={img.alt}
+								src={value}
+								alt={key}
 								className="w-5 h-5 object-contain"
 							/>
 						)}
-						<span className="text-xs md:text-base">{img.alt}</span>
+						<span className="text-xs md:text-base">{key}</span>
 						{isSelected(idx) && <X size={16} />}
 					</button>
 				);

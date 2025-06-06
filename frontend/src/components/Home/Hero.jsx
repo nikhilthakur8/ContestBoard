@@ -1,32 +1,8 @@
-import React from "react";
-import { TextHoverEffect } from "../ui/text-hover-effect";
-import { ColourfulText } from "../ui/colourful-text";
-import { Button } from "../ui/moving-border";
-import codechef from "../../assets/codechef.png";
-import codeforces from "../../assets/codeforces.webp";
-import leetcode from "../../assets/leetcode.png";
-import gfg from "../../assets/gfg.png";
-import { IconNotification, IconNotificationOff } from "@tabler/icons-react";
-import { Dot } from "lucide-react";
+import { ExternalLink, Link2 } from "lucide-react";
+import { images } from "../../service/platformImg";
+import { useNavigate } from "react-router-dom";
 export const Hero = () => {
-	const images = [
-		{
-			src: codechef,
-			alt: "CodeChef",
-		},
-		{
-			src: codeforces,
-			alt: "Codeforces",
-		},
-		{
-			src: leetcode,
-			alt: "LeetCode",
-		},
-		{
-			src: gfg,
-			alt: "GeeksforGeeks",
-		},
-	];
+	const navigate = useNavigate();
 	return (
 		<div className="flex items-center min-h-svh flex-col justify-center text-gray-300 text-center">
 			<p className="text-4xl md:text-5xl font-bold tracking-wide bg-gradient-to-b from-gray-200 to-gray-500 bg-clip-text text-transparent py-2">
@@ -37,33 +13,40 @@ export const Hero = () => {
 				contests from Codeforces, LeetCode, AtCoder, and more—without
 				missing a beat.
 			</p>
-			<p className="text-sm md:text-base mt-4 bg-slate-800  flex items-center justify-center gap-4 px-4 py-2 rounded-md">
-				<div className="text-yellow-400 relative size-3 flex items-center justify-center rounded-full">
-					<div className="w-full h-full absolute animate-ping bg-yellow-400 rounded-full"></div>
-					<div className="size-3 relative bg-yellow-400 rounded-full"></div>
+
+			<p
+				className="text-sm md:text-base mt-4 bg-slate-800  flex items-center justify-center gap-3 px-4 py-2 rounded-md cursor-pointer"
+				onClick={() => {
+					navigate("/discussion", { replace: true });
+				}}
+			>
+				<div className="text-green-400 relative size-3 flex items-center justify-center rounded-full">
+					<div className="w-full h-full absolute animate-ping bg-green-400 rounded-full"></div>
+					<div className="size-3 relative bg-green-400 rounded-full"></div>
 				</div>
-				<p>
-					Launching this week: A discussion section to share hints and
-					tips during contests!
-				</p>
+				<p>Discussion section is now live!</p>
+				<ExternalLink className="text-sky-500 inline m-0 p-0" size={20} />
 			</p>
 			<div className="mt-6 flex flex-wrap gap-3 items-center justify-center">
-				{images.map((image) => (
+				{Object.entries(images).map(([key, image]) => (
 					<div
-						key={image.alt}
+						key={key}
 						className="flex items-center gap-2 bg-gray-700 border border-gray-600 px-3 py-1 rounded-lg"
 					>
 						<img
-							src={image.src}
-							alt={image.alt}
+							src={image}
+							alt={key}
 							className="h-5 w-5 object-contain"
 						/>
 						<span className="text-gray-300 text-sm font-semibold">
-							{image.alt}
+							{key}
 						</span>
 					</div>
 				))}
 			</div>
+			{/* <div className="mt-6">
+				<Button className={"px-5"}>Go To Discussion Section</Button>
+			</div> */}
 		</div>
 	);
 };
