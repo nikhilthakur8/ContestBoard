@@ -18,7 +18,7 @@ const router = createBrowserRouter(
 				<Route index element={<Home />} />
 				<Route path="/discussion" element={<Discussion />} />
 			</Route>
-			<Route path="/discussions/:roomId" element={<ChatWrapper />} />
+			<Route path="/discussion/:roomId" element={<ChatWrapper />} />
 		</Route>
 	)
 );
