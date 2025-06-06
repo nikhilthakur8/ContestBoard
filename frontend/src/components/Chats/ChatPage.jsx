@@ -151,7 +151,7 @@ export const ChatPage = () => {
 		});
 	};
 	return (
-		<div className="h-screen">
+		<div className="h-svh">
 			<div className=" flex flex-col h-full bg-gray-800  text-gray-300  overflow-hidden">
 				{/* chat header */}
 				<ChatHeader name={name} roomData={roomData} />
@@ -190,19 +190,21 @@ function ChatHeader({ roomData }) {
 			>
 				<ArrowLeft />
 			</button>
-			<div className="w-10 h-10 rounded-full flex justify-center items-center bg-gray-700 border border-gray-600">
+			<div className="w-8 h-8 md:w-10 md:h-10 p-1 rounded-full flex justify-center items-center bg-gray-700 border border-gray-600">
 				<img
 					src={
 						images[roomData?.platform] ||
 						"https://api.dicebear.com/7.x/pixel-art/svg?seed=happyuser"
 					}
 					alt="platform logo"
-					className="w-8 h-8 rounded-full object-contain "
+					className="w-5 h-5 md:w-6 md:h-6 object-contain"
 				/>
 			</div>
-			<span className="text-lg font-semibold">{roomData?.name}</span>
+			<span className="text-xs sm:text-sm md:text-base xl:text-lg font-semibold">
+				{roomData?.name}
+			</span>
 			<ExternalLinkIcon
-				className="text-sky-500 size-6 transition hover:scale-120 hover:text-sky-400 cursor-pointer"
+				className="text-sky-500 size-4 md:size-6 transition hover:scale-120 hover:text-sky-400 cursor-pointer"
 				onClick={() => window.open(roomData.link, "_blank")}
 				title="Go to Contest Link"
 			/>
@@ -220,8 +222,8 @@ function ChatMessage({
 	chatRef,
 }) {
 	return (
-		<div className="overflow-y-auto  scrollbar-hide h-full  py-5">
-			<div className="flex flex-col px-5">
+		<div className="overflow-y-auto scrollbar-hide h-full  py-5">
+			<div className="flex flex-col text-xs xl:text-sm">
 				{messages.map((message) => (
 					<Message
 						key={message.id}
@@ -240,10 +242,10 @@ function ChatMessage({
 
 function ChatInput({ handleSubmit, inputRef, replyTo, setReplyTo }) {
 	return (
-		<div className="w-full text-lg flex  flex-col border-t border-gray-700">
+		<div className="w-full text-sm md:text-base flex  flex-col border-t border-gray-700">
 			{replyTo.chatRefId && (
-				<div className="flex items-center justify-between rounded-t-md bg-gray-700">
-					<div className="px-5 py-1  max-h-20 overflow-hidden text-sm w-full">
+				<div className="flex items-center justify-between rounded-t-md text-xs bg-gray-700">
+					<div className="px-2 md:px-5 py-1 max-h-16 md:max-h-20 overflow-hidden  w-full">
 						<p className="text-gray-500 text-xs">
 							~ {replyTo.reply.name || "User"}
 						</p>
@@ -252,7 +254,7 @@ function ChatInput({ handleSubmit, inputRef, replyTo, setReplyTo }) {
 						</p>
 					</div>
 					<X
-						className="mx-8 h-full hover:bg-gray-500 px-2 size-10 rounded-md"
+						className="mr-2 sm:mr-8 h-full hover:bg-gray-500 px-2 md:px-2 size-9 md:size-10 rounded-md"
 						onClick={() =>
 							setReplyTo({
 								reply: { message: null, name: null },
@@ -265,7 +267,7 @@ function ChatInput({ handleSubmit, inputRef, replyTo, setReplyTo }) {
 			<div className="w-full">
 				<form
 					onSubmit={handleSubmit}
-					className="text-lg inline-flex w-full"
+					className="text-xs sm:text-sm md:text-base inline-flex w-full"
 				>
 					<textarea
 						placeholder="Type message..."
@@ -284,10 +286,10 @@ function ChatInput({ handleSubmit, inputRef, replyTo, setReplyTo }) {
 						}}
 					/>
 					<button
-						className="rounded-full px-10 cursor-pointer"
+						className="rounded-full px-2 md:px-10 cursor-pointer"
 						type="submit"
 					>
-						<SendHorizontalIcon />
+						<SendHorizontalIcon className="size-4 md:size-6" />
 					</button>
 				</form>
 			</div>

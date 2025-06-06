@@ -54,7 +54,7 @@ export const Message = React.forwardRef(
 				initial={{ opacity: 0, y: 10 }}
 				animate={isInView ? { opacity: 1, y: 0 } : {}}
 				transition={{ duration: 0.3 }}
-				className={`flex items-center w-full text-gray-200 p-2 relative ${getChatDirection()} gap-3 ${
+				className={`flex items-center w-full text-gray-200 p-2 relative ${getChatDirection()} gap-1 md:gap-3 ${
 					highlightedMsgId === message.id
 						? "bg-gray-700 rounded-md p-2"
 						: ""
@@ -71,7 +71,7 @@ export const Message = React.forwardRef(
 				)}
 
 				{/* Message Content */}
-				<div className="bg-gray-900 px-2 py-1 rounded-lg max-w-xl">
+				<div className="bg-gray-900 px-2 py-1 rounded-lg max-w-xs xl:max-w-xl">
 					{/* if send by me then it will show the name as You */}
 					{!isSendByMe && (
 						<span
