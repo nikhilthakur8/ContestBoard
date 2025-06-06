@@ -32,6 +32,7 @@ export const Message = React.forwardRef(
 				reply: {
 					message: message.message,
 					name: message.name,
+					userId: message.senderId,
 				},
 				chatRefId: message.id,
 			});
@@ -91,7 +92,7 @@ export const Message = React.forwardRef(
 						>
 							<span className="text-gray-400 text-xs">
 								~{" "}
-								{isSendByMe
+								{message.replyTo.userId === fingerprint
 									? "You"
 									: message.replyTo.name || "User"}
 							</span>

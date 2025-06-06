@@ -37,6 +37,7 @@ export const ChatPage = () => {
 		reply: {
 			message: null,
 			name: null,
+			userId: null,
 		},
 		chatRefId: null,
 	});
@@ -129,13 +130,14 @@ export const ChatPage = () => {
 				message: replyTo.reply.message,
 				name: replyTo.reply.name,
 				chatRefId: replyTo.chatRefId,
+				userId: replyTo.reply.userId,
 			},
 			timestamp: new Date().toISOString(),
 		};
 		sendMessage(roomId, newMessage);
 		form.reset();
 		setReplyTo({
-			reply: { message: null, name: null },
+			reply: { message: null, name: null, userId: null },
 			chatRefId: null,
 		});
 		e.target.message.style.height = "auto";
@@ -182,15 +184,15 @@ export const ChatPage = () => {
 function ChatHeader({ roomData }) {
 	const navigate = useNavigate();
 	return (
-		<div className="px-2 flex items-center text-base md:text-xl gap-3 py-3 bg-gray-950">
+		<div className="px-2 flex items-center text-sm md:text-xl gap-3 py-3 bg-gray-950">
 			<button
 				className="cursor-pointer hover:bg-gray-800 border hover:border-gray-700 border-transparent rounded-full p-1 flex"
 				title="Back to Discussion"
 				onClick={() => window.history.back() || navigate("/discussion")}
 			>
-				<ArrowLeft className="size-6" />
+				<ArrowLeft className="size-5 md:size-6" />
 			</button>
-			<div className="w-10 h-10 p-1 rounded-full flex justify-center items-center bg-gray-700 border border-gray-600">
+			<div className="w-7 h-7 shrink-0 md:w-10 md:h-10 p-1 rounded-full flex justify-center items-center bg-gray-700 border border-gray-600">
 				<img
 					src={images[roomData?.platform] || images["LeetCode"]}
 					alt="platform logo"
@@ -252,7 +254,11 @@ function ChatInput({ handleSubmit, inputRef, replyTo, setReplyTo }) {
 						className="mr-2 sm:mr-8 h-full hover:bg-gray-500 px-2 md:px-2 size-9 md:size-10 rounded-md"
 						onClick={() =>
 							setReplyTo({
-								reply: { message: null, name: null },
+								reply: {
+									message: null,
+									name: null,
+									userId: null,
+								},
 								chatRefId: null,
 							})
 						}
