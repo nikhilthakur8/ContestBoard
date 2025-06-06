@@ -50,7 +50,7 @@ export const Discussion = () => {
 								>
 									{d.name}
 								</h3>
-								<div className="text-gray-500 text-base break-all">
+								<div className="text-gray-500 text-sm break-all">
 									{d.platform} - {d.contestId}
 								</div>
 							</div>
