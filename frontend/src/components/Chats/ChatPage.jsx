@@ -192,7 +192,10 @@ function ChatHeader({ roomData }) {
 			</button>
 			<div className="w-10 h-10 rounded-full flex justify-center items-center bg-gray-700 border border-gray-600">
 				<img
-					src={images[roomData?.platform] || ""}
+					src={
+						images[roomData?.platform] ||
+						"https://api.dicebear.com/7.x/pixel-art/svg?seed=happyuser"
+					}
 					alt="platform logo"
 					className="w-8 h-8 rounded-full object-contain "
 				/>
