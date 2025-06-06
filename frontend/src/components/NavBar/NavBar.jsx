@@ -39,7 +39,8 @@ export function NavbarDemo() {
 				<MobileNav>
 					<MobileNavHeader>
 						<div className="font-bold text-3xl">
-							<ColourfulText text="NextLeet" />
+							Contest
+							<ColourfulText text="Board" />
 						</div>
 						{navItems?.length > 0 && (
 							<MobileNavToggle
