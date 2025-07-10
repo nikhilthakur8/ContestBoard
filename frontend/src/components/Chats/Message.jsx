@@ -104,7 +104,7 @@ export const Message = React.forwardRef(
 
 					{/* message content */}
 					<Tag
-						className={`whitespace-pre-line block ${
+						className={`break-words whitespace-pre-wrap block ${
 							isLink()
 								? "text-sky-500 cursor-pointer hover:underline"
 								: ""
